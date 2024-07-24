@@ -13,14 +13,14 @@ jobs:
     needs: DEV
     steps:
       #- uses: actions/checkout@v4 #get the code
-      - run: echo demo job
+      - run: echo demo job for QA
 
   UAT:
     runs-on: self-hosted
     needs: QA
     steps:
       #- uses: actions/checkout@v4 #get the code
-      - run: echo demo job2
+      - run: echo demo job for UAT
 
   PROD:
     runs-on: self-hosted

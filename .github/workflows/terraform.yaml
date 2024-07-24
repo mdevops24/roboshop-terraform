@@ -23,7 +23,7 @@ jobs:
 
   QA:
     runs-on: self-hosted
-    needs: DEV
+    needs: DEV-APPLY
     steps:
       #- uses: actions/checkout@v4 #get the code
       - run: echo demo job for QA

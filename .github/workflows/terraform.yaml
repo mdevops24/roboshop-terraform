@@ -12,7 +12,7 @@ jobs:
 
   DEV-APPLY:
     runs-on: self-hosted
-    environment: dev
+    environment: dev  #for approval
     needs: DEV-PLAN
     steps:
       - uses: actions/checkout@v4
@@ -23,6 +23,7 @@ jobs:
 
   QA:
     runs-on: self-hosted
+    environment: qa  #for approval
     needs: DEV-APPLY
     steps:
       #- uses: actions/checkout@v4 #get the code
@@ -30,6 +31,7 @@ jobs:
 
   UAT:
     runs-on: self-hosted
+    environment: uat  #for approval
     needs: QA
     steps:
       #- uses: actions/checkout@v4 #get the code
@@ -37,6 +39,7 @@ jobs:
 
   PROD:
     runs-on: self-hosted
+    environment: prod  #for approval
     needs: UAT
     steps:
       - uses: actions/checkout@v4 #get the code

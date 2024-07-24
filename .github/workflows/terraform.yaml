@@ -26,6 +26,6 @@ jobs:
     runs-on: self-hosted
     needs: UAT
     steps:
-      #- uses: actions/checkout@v4 #get the code
+      - uses: actions/checkout@v4 #get the code
       - name: Terraform Init
         run: terraform init -backend-config=env-prod/state.tfvars

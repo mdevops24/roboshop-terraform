@@ -1,3 +1,4 @@
+##VPC
 resource "aws_vpc" "main" {
   cidr_block = var.cidr
 
@@ -6,6 +7,7 @@ resource "aws_vpc" "main" {
   }
 }
 
+##Subnets
 resource "aws_subnet" "web" {
   count      = length(var.web_subnets)
   vpc_id     = aws_vpc.main.id
@@ -50,4 +52,14 @@ resource "aws_subnet" "public" {
   }
 }
 
+
+#RTB route tables
+resource "aws_route_table" "public" {
+  count      =  length(var.public_subnets)
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "public-rt"
+  }
+}
 

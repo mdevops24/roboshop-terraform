@@ -129,3 +129,19 @@ resource "aws_internet_gateway" "main" {
     Name = "${var.env}-igw"
   }
 }
+
+## NAT Gateway
+resource "aws_eip" "ngw-ip" {
+  count  = length(var.availability_zones)
+  domain = "vpc"
+}
+
+resource "aws_nat_gateway" "main" {
+  count         = length(var.availability_zones)
+  allocation_id = aws_eip.ngw-ip.*.id[count.index]
+  subnet_id     = aws_subnet.public.*.id[count.index]
+
+  tags = {
+    Name = "nat-gw-${split("-", var.availability_zones[count.index])[2]}"
+  }
+}

@@ -1,4 +1,4 @@
-name: Provision Roboshop Infra
+name: Provision Roboshop Infra Create
 on: [workflow_dispatch]
 jobs:
 #  DEV-PLAN:

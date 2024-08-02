@@ -12,3 +12,12 @@ vpc = {
     default_vpc_cidr   = "172.31.0.0/16"         #update your AWS details
 
 }
+
+ec2 = {
+   frontend = {
+      subnet_ref    = "web"
+      instance_type = "t2.micro"
+      app_port      = 80
+       app_sg_cidr  = ["10.10.0.0/24", "10.10.1.0/24"]
+       }
+   }

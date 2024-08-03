@@ -19,7 +19,7 @@ jobs:
       - name: Terraform Init
         run: terraform init -backend-config=env-dev/state.tfvars
       - name: Terraform destroy
-        run: terraform destroy -var-file=env-dev/main.tfvars -auto-approve
+        run: terraform destroy -var-file=env-dev/main.tfvars -auto-approve -var vault_token=${{ secrets.VAULT_TOKEN }}
 
   PROD:
     runs-on: self-hosted
@@ -29,4 +29,4 @@ jobs:
       - name: Terraform Init
         run: terraform init -backend-config=env-prod/state.tfvars
       - name: Terraform destroy
-        run: terraform destroy -var-file=env-dev/main.tfvars -auto-approve
+        run: terraform destroy -var-file=env-dev/main.tfvars -auto-approve -var vault_token=${{ secrets.VAULT_TOKEN }}

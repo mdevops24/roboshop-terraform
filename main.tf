@@ -27,6 +27,7 @@ module "apps" {
     env             = var.env
     bastion_nodes   = var.bastion_nodes
     asg             = true  #autoscaling
+    vault_token     = var.vault_token
 }
 
 module "db" {
@@ -43,4 +44,5 @@ module "db" {
     env             = var.env
     bastion_nodes   = var.bastion_nodes
     asg             = false
+    vault_token     = var.vault_token
 }

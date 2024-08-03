@@ -1,4 +1,5 @@
 env = "dev"
+bastion_nodes  = ["workstationPVTip/32"] #S31@01:08:00
 
 vpc = {
     cidr = "10.10.0.0/16"

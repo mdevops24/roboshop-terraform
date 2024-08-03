@@ -9,3 +9,4 @@ variable "bastion_nodes" {}
 variable "capacity" {
     default = {}
 }
+variable "asg" {}
